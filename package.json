@@ -1,7 +1,7 @@
 {
   "name": "piapia",
   "version": "1.0.0",
-  "description": "piapia",
+  "description": "A wrapped tap, making testing more fun.",
   "main": "src/index.js",
   "scripts": {
     "test-no-cov": "tap test/*.js --coverage",
@@ -16,7 +16,15 @@
     "url": "git://github.com/kaelzhang/node-piapia.git"
   },
   "keywords": [
-    "piapia"
+    "piapia",
+    "tap",
+    "before",
+    "after",
+    "beforeEach",
+    "afterEach",
+    "tape",
+    "tests",
+    "testing"
   ],
   "engines": {
     "node": ">= 6"
@@ -27,7 +35,6 @@
     "url": "https://github.com/kaelzhang/node-piapia/issues"
   },
   "devDependencies": {
-    "piapia": "^1.0.0",
     "codecov": "^2.3.0"
   },
   "dependencies": {
