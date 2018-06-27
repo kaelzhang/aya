@@ -15,19 +15,76 @@
 
 # piapia
 
-<!-- description -->
+Just a wrapper of tap, making testing more fun.
 
 ## Install
 
 ```sh
-$ npm install piapia
+$ npm i -D piapia
 ```
 
 ## Usage
 
-```js
-import piapia from 'piapia'
+package.json
+
+```json
+{
+  "scripts": {
+    "test": "piapia test/index.js --coverage"
+  }
+}
 ```
+
+test/index.js
+
+```js
+const {test} = require('piapia')
+
+test.before(() => {
+  // some setup
+})
+
+test('description', async t => {
+  const result = await getResult()
+  t.is(result, true)
+})
+```
+
+## `t.end()` only in `test.cb`
+
+Unlike `tap`, we should only use `t.end()` in `test.cb` only.
+
+```js
+test.cb('test result with callback', t => {
+  getResult(result => {
+    t.is(result, true)
+    t.end()
+  })
+})
+```
+
+## `t.end()` is NO more necessary for `test`
+
+```js
+test('sync test', t => {
+  const result = getSyncResult()
+  t.is(result, true)
+})
+
+test('async test', async t => {
+  const result = await getAsyncResult()
+  t.is(result, true)
+})
+```
+
+## Lifecycles
+
+`piapia` supports FOUR lifecycle methods which are listed below according to the executing sequence:
+
+- `test.before(fn)`
+- `test.beforeEach(fn)`
+- `test.afterEach(fn)`
+- `test.after(fn)`
 
 ## License
 
