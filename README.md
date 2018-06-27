@@ -58,7 +58,7 @@ $ npm test
 
 ## `t.end()` only in `test.cb`
 
-Unlike `tap`, we should only use `t.end()` in `test.cb` only.
+Unlike `tap`, we should only use `t.end()` in `test.cb`.
 
 ```js
 test.cb('test result with callback', t => {
@@ -69,7 +69,7 @@ test.cb('test result with callback', t => {
 })
 ```
 
-## `t.end()` is NO more necessary for `test`
+## `t.end()` is NO MORE necessary for `test`
 
 ```js
 test('sync test', t => {
