@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A wrapped tap, making testing more fun.",
   "main": "src/index.js",
+  "bin": {
+    "piapia": "bin/run.js"
+  },
   "scripts": {
     "test-no-cov": "tap test/*.js --coverage",
     "test": "npm run test-no-cov",
