@@ -1,0 +1,1 @@
+require('tap/bin/run')
