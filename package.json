@@ -1,6 +1,6 @@
 {
   "name": "piapia",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A wrapped tap, making testing more fun.",
   "main": "src/index.js",
   "bin": {

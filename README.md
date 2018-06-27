@@ -27,7 +27,7 @@ $ npm i -D piapia
 
 package.json
 
-```json
+```js
 {
   "scripts": {
     "test": "piapia test/index.js --coverage"
@@ -48,6 +48,12 @@ test('description', async t => {
   const result = await getResult()
   t.is(result, true)
 })
+```
+
+And then
+
+```sh
+$ npm test
 ```
 
 ## `t.end()` only in `test.cb`
