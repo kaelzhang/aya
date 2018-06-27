@@ -27,10 +27,12 @@ test.afterEach(() => {
   test1 = test2 = test3 = undefined
 })
 
+test.afterEach(null)
+
 test.after(t => {
-  t.is(test1, undefined)
-  t.is(test2, undefined)
-  t.is(test3, undefined)
+  t.is(test1, true)
+  t.is(test2, 1)
+  t.is(test3, 1)
 })
 
 test('1: sync', t => {
