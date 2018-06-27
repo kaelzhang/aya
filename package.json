@@ -1,0 +1,32 @@
+{
+  "name": "piapia",
+  "version": "1.0.0",
+  "description": "piapia",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "piapia test/*.js --coverage",
+    "posttest": "piapia --coverage-report=html && codecov"
+  },
+  "files": [
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/node-piapia.git"
+  },
+  "keywords": [
+    "piapia"
+  ],
+  "engines": {
+    "node": ">= 6"
+  },
+  "author": "kaelzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaelzhang/node-piapia/issues"
+  },
+  "devDependencies": {
+    "piapia": "^1.0.0",
+    "codecov": "^2.3.0"
+  }
+}
