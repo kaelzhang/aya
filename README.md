@@ -80,6 +80,8 @@ test('sync test', t => {
 test('async test', async t => {
   const result = await getAsyncResult()
   t.is(result, true)
+
+  // t.end() here is useless and has no effect.
 })
 ```
 
@@ -91,6 +93,16 @@ test('async test', async t => {
 - `test.beforeEach(fn)`
 - `test.afterEach(fn)`
 - `test.after(fn)`
+
+```js
+// Both sync and async functions are supported
+test.before(async t => {
+  await startServer()
+
+  // We could do assertions inside lifecycle methods
+  t.is(await getServerPort(), 8080)
+})
+```
 
 ## License
 
