@@ -15,7 +15,7 @@
 
 # piapia
 
-Just a wrapper of tap, making testing more fun.
+Just a wrapper of [tap](https://www.npmjs.com/package/tap), making testing more fun.
 
 ## Install
 
@@ -56,7 +56,7 @@ And then
 $ npm test
 ```
 
-## `t.end()` only in `test.cb`
+### `t.end()` only in `test.cb`
 
 Unlike `tap`, we should only use `t.end()` in `test.cb`.
 
@@ -69,7 +69,7 @@ test.cb('test result with callback', t => {
 })
 ```
 
-## `t.end()` is NO MORE necessary for `test`
+### `t.end()` is NO MORE necessary for `test`
 
 ```js
 test('sync test', t => {
@@ -85,7 +85,7 @@ test('async test', async t => {
 })
 ```
 
-## Lifecycles
+### Lifecycles
 
 `piapia` supports FOUR lifecycle methods which are listed below according to the executing sequence:
 
@@ -102,6 +102,27 @@ test.before(async t => {
   // We could do assertions inside lifecycle methods
   t.is(await getServerPort(), 8080)
 })
+```
+
+## Command Line
+
+The command line interface of `piapia` is exactly the same as [`tap`](https://www.npmjs.com/package/tap).
+
+For example, if we want to use `piapia` with `codecov`
+
+```sh
+$ npm i -D piapia codecov
+```
+
+package.json
+
+```js
+{
+  "scripts": {
+    "test": "piapia test/index.js --coverage",
+    "posttest": "piapia --coverage-report=html && codecov"
+  }
+}
 ```
 
 ## License
