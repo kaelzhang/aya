@@ -1,6 +1,6 @@
 {
   "name": "piapia",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A wrapped tap, making testing more fun.",
   "main": "src/index.js",
   "bin": {
@@ -30,7 +30,7 @@
     "testing"
   ],
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "author": "kaelzhang",
   "license": "MIT",
