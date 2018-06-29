@@ -15,6 +15,8 @@
 
 # piapia
 
+![piapia](https://raw.githubusercontent.com/kaelzhang/node-piapia/master/piapia.gif)
+
 Just a wrapper of [tap](https://www.npmjs.com/package/tap), making testing more fun.
 
 ## Install
