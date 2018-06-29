@@ -12,9 +12,10 @@ let test1
 let test2
 let test3
 
-test.before(t => {
+test.before(async t => {
   t.is(test1, undefined)
-  test1 = true
+
+  test1 = await delay(10, true)
 })
 
 test.beforeEach(async () => {
@@ -36,7 +37,7 @@ test.after(t => {
 })
 
 test('1: sync', t => {
-  t.is(true, true)
+  t.is(true, test1)
 })
 
 test('2: async', async t => {
