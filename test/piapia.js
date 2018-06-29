@@ -1,12 +1,5 @@
 const {test} = require('..')
-
-const delay = (after, value) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(value)
-    }, after)
-  })
-}
+const {delay} = require('./lib/tools')
 
 let test1
 let test2

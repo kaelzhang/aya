@@ -13,11 +13,6 @@ const LIFE_CYCLES = [
   'afterEach'
 ]
 
-const MEMBERS = [
-  'cb',
-  ...LIFE_CYCLES
-]
-
 const NOOP = () => {}
 
 const wrapAsyncT = t => {
@@ -71,6 +66,18 @@ class Queue extends EventEmitter {
   }
 }
 
+const defineLifecycle = (host, target, self) => {
+  const key = `_${target}`
+  function setter (fn) {
+    self[key] = fn
+  }
+
+  Object.defineProperty(host, target, {
+    get: () => setter,
+    set: fn => setter.call(this, fn)
+  })
+}
+
 class Piapia {
   constructor () {
     this._queue = new Queue()
@@ -84,32 +91,14 @@ class Piapia {
     })
 
     LIFE_CYCLES.forEach(m => {
-      this[m] = this[m].bind(this)
+      defineLifecycle(this.test, m, this)
     })
 
-    MEMBERS.forEach(m => {
-      this.test[m] = this[m]
-    })
+    this.test.cb = this.cb.bind(this)
 
     process.nextTick(() => {
       this._run()
     })
-  }
-
-  before (fn) {
-    this._before = fn
-  }
-
-  beforeEach (fn) {
-    this._beforeEach = fn
-  }
-
-  after (fn) {
-    this._after = fn
-  }
-
-  afterEach (fn) {
-    this._afterEach = fn
   }
 
   async _run () {

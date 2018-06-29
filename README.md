@@ -106,6 +106,15 @@ test.before(async t => {
 })
 ```
 
+We could also define lifecycle methods by using setters:
+
+```js
+test.before = async t => {
+  await startServer()
+  t.is(await getServerPort(), 8080)
+}
+```
+
 ## Command Line
 
 The command line interface of `piapia` is exactly the same as [`tap`](https://www.npmjs.com/package/tap).
